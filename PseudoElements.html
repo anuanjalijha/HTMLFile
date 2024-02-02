@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+
+    </title>
+    <!-- <link rel="stylesheet" type="text/css" href="style.css"> -->
+<style>
+.styled-first-letter::first-line{
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+p{
+    background-color: lightgrey;
+
+}
+
+p::before{
+    content: 'Before';
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+p::after{
+    content: 'After';
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+</style>
+
+</head>
+<body>
+
+
+    <!-- <p class = "styled-first-letter"> learn about pseudo elements </p>
+	<p> learn about pseudo elements </p> -->
+    <p> Heading </p>
+</body>
+</html>
