@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+            #container{
+    height: 75vh;
+    width: 75vh;
+    background-color: lightgrey;
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+
+#container div{
+    height: 200px;
+    width: 200px;
+}
+
+#div1{
+    background-color: cyan;
+    order: 1;
+}
+
+
+#div2{
+    background-color: red;
+}
+
+
+#div3{
+    background-color: grey;
+    order: 5;
+}
+
+#div4{
+    background-color: maroon;
+    order: -1;
+}
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="div1">
+        Div 1
+    </div>
+    <div id="div2">
+        Div 2
+    </div>
+    <div id="div3">
+        Div 3
+    </div> 
+    <div id="div4">
+        Div 4
+    </div>
+    
+
+    </div>
+</body>
+</html>
