@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link  rel="stylesheet" href="../CSS/MusicPlayerProject.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+</head>
+<body>
+    <header class="header">
+        <div class="logo">
+            <img src="../Images/logo.png">
+        </div>
+        <div class="fav">
+            <h3>Favourites</h3>
+        </div>
+        <div class="search-container">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>  
+                
+            </div>
+            <input type="text" class="search-input" placeholder="Search...">
+            <div class="micro">
+                <i class="fas fa-microphone"></i>  
+                
+            </div>
+        </div>
+        <div class="bell-icon">
+            <i class="fas bell fa-bell"></i>
+            </div>
+            <div class="user-profile">
+            <img class="profile-photo" src="../Images/profilepic.jpg"> 
+            </div>
+        
+    </header>
+    <section>
+        <div class="container">
+        <main class="main">
+            <!---picture1-->
+            <div class="picture">
+                <div class="picture1">
+                    <img src="../Images/carousel1.jpg" alt="">
+                </div>
+                <div class="picture1">
+                    <img src="../Images/carousel2.jpg" alt="">
+                </div>
+                <div class="picture1">
+                   <img src="../Images/carousel3.jpg" alt=""> 
+                </div>
+                <div class="picture1">
+                    <img src="../Images/sixnine.jpg" alt=""> 
+                 </div>
+            </div>
+            <!---latest release-->
+            <div class="release">
+                <div class="heading">
+                <h3>Latest Release</h3>
+                </div>
+                <div class="release_class">
+                <div class="release1">
+                    <div class="img">
+                        <img src="../Images/onism.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <p><span class="h">Onism</span><br>
+                            <span class="p">AUG 11,2017</span></p>
+                    </div>
+                    <div class="more_icon">
+                        <a href=""><i class="fa-solid fa-ellipsis"></i></a>
+                        <span class="icon_p">4:44</span>
+                    </div>
+                </div>
+                <div class="release1">
+                    <div class="img">
+                        <img src="../Images/onism.jpg" alt="">
+                    </div>
+                    <div class="info">
+                    <p><span class="h">Onism</span><br>
+                        <span class="p">AUG 11,2017</span></p>
+                        </div>
+                    <div class="more_icon">
+                        <a href=""><i class="fa-solid fa-ellipsis"></i></a>
+                        <span class="icon_p">4:44</span>
+                    </div>
+                    
+                </div>
+                <div class="release1">
+                    <div class="img">
+                        <img src="../Images/onism.jpg" alt="">
+                    </div>
+                    <div class="info">
+                        <p><span class="h">Onism</span><br>
+                            <span class="p">AUG 11,2017</span></p>
+                              
+                    </div>
+                    <div class="more_icon">
+                        <a href=""><i class="fa-solid fa-ellipsis"></i></a>
+                        <span class="icon_p">4:44</span>
+                    </div>
+                    
+                </div>
+                <div class="release1">
+                    <div class="img">
+                        <img src="../Images/onism.jpg" alt="">
+                    </div>
+                    <div class="info">
+                              <p><span class="h">Onism</span><br>
+                              <span class="p">AUG 11,2017</span></p>
+
+                    </div>
+                    <div class="more_icon">
+                        <a href=""><i class="fa-solid fa-ellipsis"></i></a>
+                        <span class="icon_p">4:44</span>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+        <!-- </div> -->
+        <!--popular Artists-->
+        <div class="artist_section">
+            <div class="heading_artist">Popular Artists</div>
+            <div class="artist_container">
+                <div class="artist_card">
+                    <div class="artist_image">
+                        <img src="../Images/ed sheeran.jpg">
+                        <span class="artist_text">Ed Shreeran</span>
+                    </div>
+                    </div>
+                    <div class="artist_card">
+                        <div class="artist_image">
+                            <img src="../Images/ColdPlay.jpg">
+                            <span class="artist_text">ColdPlay</span>
+                        </div>
+                    </div>
+                    <div class="artist_card">
+                        <div class="artist_image">
+                            <img src="../Images/Zayn.jpg">
+                            <span class="artist_text">Zayn</span>
+                        </div>
+                    </div>
+                    <div class="artist_card">
+                        <div class="artist_image">
+                            <img src="../Images/CharliePuth.jpg">
+                            <span class="artist_text">Charlie Puth</span>
+                        </div>
+                    </div>
+                    <div class="artist_card">
+                        <div class="artist_image">
+                            <img src="../Images/ImaginDragon.jpg">
+                            <span class="artist_text">Imagine Dragon</span>
+                        </div>
+                    </div>
+                    <div class="artist_card">
+                        <div class="artist_image">
+                            <img src="../Images/BrunoMars.jpg">
+                            <span class="artist_text">Bruno Mars</span>
+                        </div>
+                    </div>
+                    </div>
+
+            </div>
+            <!--music playlist-->
+            <div class="playlist" id="playlist">
+                <div class="music_playlist">
+                    <div class="music_station">
+                        <img src="../Images/stations-img-transformed.png">
+
+                    </div>
+                    <div class="music_category">
+                        <img src="../Images/love.jpg" alt="">
+                        <p>Love</p>
+                    </div>
+                    <div class="music_category">
+                        <img src="../Images/retro.png" alt="">
+                        <p>Retro</p>
+                    </div>
+                    <div class="music_category">
+                        <img src="../Images/chill.jpg" alt="">
+                        <p>Chill</p>
+                    </div>
+                    <div class="music_category">
+                        <img src="../Images/workout.jpg" alt="">
+                        <p>Workout</p>
+                    </div>
+                    <div class="music_category">
+                        <img src="../Images/rock.jpg" alt="">
+                        <p>Rock</p>
+                    </div>
+                    <div class="music_category">
+                        
+                        <img src="../Images/pop.jpg" alt="">
+                    
+                        
+                            <p>Pop</p>
+                        
+                        </div>
+                    
+                        
+                    </div>
+
+                </div>
+                <!---music type-->
+                <div class="music_type">
+                    <div class="music_type_container">
+                        <div class="music_sorting">
+                            <img src="../Images/party.jpg">
+                            <p>Party</p>
+                            </div>
+                        <div class="music_sorting music_sorting2">
+                            <img src="../Images/electronic.jpg">
+                            <p>Electronic</p>
+                            </div>
+                        <div class="music_sorting">
+                            <img src="../Images/road-trip.jpg">
+                            <p>Road Trip</p>
+                            </div>         
+                    </div>
+                </div>
+                <!---latest English-->
+                <div class="english_songs">
+                    <div  class="english_title">Latest English</div>
+                    <div class="english_songs1">
+                        <div class="english">
+                            <img src="../Images/queue-01.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-02.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-03.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-04.png" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-01.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-02.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+
+
+                    </div>
+                    </div>
+                    <!--latest hindi-->
+                    <!---latest English-->
+                <div class="english_songs">
+                    <div  class="english_title">Latest Hindi</div>
+                    <div class="english_songs1">
+                        <div class="english">
+                            <img src="../Images/queue-01.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-02.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-03.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-04.png" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-01.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+                        <div class="english">
+                            <img src="../Images/queue-02.jpg" alt="" />
+                            <p><span class="head">Onism</span><br>
+                            <span class="para">AUG 11,2017</span></p>
+                        </div>
+
+
+                    </div>
+                    </div>
+
+
+
+        </main>
+        <aside>
+            <div class="queue">
+                <div class="title"><h2>Queue</h2>
+                <h3>Queue <span class="drop_down"><i class="fa-solid fa-caret-down"></i></span></h3>
+                </div>
+                <div class="whole_queue">
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>01</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-02.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number number2">
+                            <span><i class="fa-solid fa-chart-simple"></i></span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-03.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>03</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-04.png" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>04</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-01.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>05</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-04.png" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+
+                            
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>01</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-01.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>01</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-02.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number number2">
+                            <span><i class="fa-solid fa-chart-simple"></i></span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-03.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>03</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-04.png" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>04</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-01.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>05</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-04.png" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                    <div class="queue_box">
+                        <div class="number">
+                            <span>01</span>
+                        </div>
+                        <div class="content">
+                            <img src="../Images/queue-01.jpg" alt="">
+                            </div>
+                            <div class="paragraph">
+                                <p><span class="if">Mirage</span><br><span class="else">Else</span></p>
+                            </div>
+                            <div class="heart_icon">
+                                <i class="fa-regular fa-heart"></i>
+                            </div>
+
+                    </div>
+                </div>
+            </div>
+        </aside>
+        </div>
+    </section>
+    <footer>
+        <div class="footer_container">
+            <div class="part1">
+            <div class="footer_image">
+                <img src="../Images/John Lennon.jpg" alt="">
+            </div>
+            <div class="image_content">
+                <h4>Imagine by John</h4>
+                <p>John Lennon</p>
+            </div>
+            <div class="footer_icon">
+                <i class="fa-regular fa-heart"></i>
+                <i class="fa-solid fa-ban"></i>
+
+            </div>
+            </div>
+            <div class="part2">
+                <div class="music_icon">
+                    <i class="fa-solid fa-shuffle"></i>
+                    <i class="fa-solid fa-backward-step"></i>
+                    <i class="fa-regular fa-circle-pause"></i>
+                    <i class="fa-solid fa-forward-step"></i>
+                    <i class="fa-solid fa-repeat"></i>
+    
+                    <div class="music_display">
+                        <span>1:39</span>
+                        <input type="range" name="" id="range">
+                        <span>4:44</span>
+    
+                    </div>
+    
+
+                </div>
+                
+            </div>
+            <div class="part3">
+                <div class="music_icon">
+                    <!-- <i class="fa-solid fa-down-left-and-up-right-to-center"></i> -->
+                    <!-- <i class="fa-regular fa-volume"></i> -->
+                    <i class="fa-solid fa-list"></i>
+                
+                    <input type="range" name="" id="volumebar">
+                    <i class="fa-solid fa-down-left-and-up-right-to-center"></i>
+
+                </div>
+
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
