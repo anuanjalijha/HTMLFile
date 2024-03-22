@@ -1,0 +1,198 @@
+<!-- For the given markup and CSS, build a Social Media Page that would be able to utilize the post1 object present in the JS scaffold to build a container that would display the post on the Screen.
+
+Objectives:
+
+In the div with the id "posts" create a new div with the class "post". This div will contain:-
+
+1- h3 tag, which should contain the author of post1.
+
+2- img tag, which should contain the image present in post1.
+
+3- p tag, which should contain the content of post1
+
+4- A button which textContent "Like"
+
+5- An input tag with text type.
+
+6- A button with the textContent "Comment"
+
+7- A div with the class "post-footer" showing the number of likes and numbers of comments on the post using the template literal `Likes: ${post1.likes} Comments: ${post1.comments.length}`.
+
+8- A div with the class "comments-container" . Initially, the display should be set to none.
+
+9- For all the comments present in the comment array of the post1, create a p tag with each comment as its textContent and append it to "comments-container" div.
+
+10- Create a click event listener to the post-footer div, Which would set the display of the "comments-container" div to "block" or "none" on click depending on the value of the display of "comments-container" div..
+
+11- Append each of these to the div with "post" class in the same sequence as given in the problem Statement. -->
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .container {
+  max-width: 550px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  color: white;
+  
+  background-color: #272727;
+}
+body{
+  
+  background-color: #121212;
+}
+.posts-container {
+  flex: 2;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar{
+  background-color: #fef8f8;
+}
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #f8f1f1;
+  font-style: oblique;
+}
+
+#posts {
+  margin-top: 20px;
+}
+
+.post {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin-bottom: 20px;
+  background-color: #121212;
+  color: white;
+}
+
+.post h3 {
+  font-size: 18px;
+   color: white;
+   text-align: center;
+}
+
+.post p {
+  margin-left: 20px;
+  font-size: 20px;
+  color: white;
+}
+
+.post img {
+  margin-left: 20px;
+  margin-right: 20px;
+  height: auto;
+  margin-bottom: 10px;
+  width: 500px;
+}
+.post button{
+  margin-left: 20px;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.post button:hover{
+  background-color:#a7a7a7;
+  
+}
+
+
+.post-footer {
+  margin-left: 20px;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #888;
+}
+
+.comments-container {
+  margin-top: 10px;
+  color: #666;
+}
+
+.comments-container p {
+  margin-left: 20px;
+}
+
+
+    </style>
+</head>
+<body>
+  <div class="container">
+    <div class="posts-container">
+      <h1>Photogram </h1>
+      <div id="posts"></div>
+    </div>
+  </div>
+  <script>
+    //Complete this JS file to render the post1 on the screen with all the specified tags.
+let post1 ={
+    id: 1, 
+    author: 'John',
+    content: 'My first Post!', 
+    likes: 10, 
+    comments: ['Great post!', 'Nice photo!'], 
+    image: 'https://files.codingninjas.in/image2-28694.jpg' };
+const{comments} = post1;
+let initialDiv = document.getElementById("posts");
+let newDiv = document.createElement("div");
+newDiv.className = "post";
+initialDiv.appendChild(newDiv);
+let heading1 = document.createElement("h3");
+heading1.textContent = post1.author;
+newDiv.appendChild(heading1);
+let img1 = document.createElement("img");
+img1.src = post1.image;
+newDiv.appendChild(img1);
+let para1 = document.createElement("p");
+para1.textContent = post1.content;
+newDiv.appendChild(para1);
+let btn = document.createElement("button");
+btn.textContent = "Like";
+newDiv.appendChild(btn);
+let inputElement = document.createElement("input");
+inputElement.type = "text";
+newDiv.appendChild(inputElement);
+let btn1 = document.createElement("button");
+btn1.textContent = "Comment";
+newDiv.appendChild(btn1);
+let post_footer_div = document.createElement("div");
+post_footer_div.className = "post-footer";
+post_footer_div.textContent = `Likes: ${post1.likes} Comments: ${post1.comments.length}`;
+newDiv.appendChild(post_footer_div);
+var comments_container = document.createElement("div");
+
+// Set the class attribute to "comments-container"
+comments_container.className = "comments-container";
+
+// Set the initial display to none
+comments_container.style.display = "none";
+comments.forEach(comment => {
+    var pElement = document.createElement("p");
+    pElement.textContent = comment;
+    comments_container.appendChild(pElement);
+});
+newDiv.appendChild(comments_container);
+post_footer_div.addEventListener('click',function(){
+    if(comments_container.style.display === "none"){
+        
+     comments_container.style.display = "block";
+    }
+    else{
+        comments_container.style.display = "none";
+    }
+
+    
+})
+
+
+
+
+  </script>
+</body>
+</html>
