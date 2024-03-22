@@ -1,0 +1,304 @@
+<!-- Problem statement
+Create a typing speed test application that measures the user's typing speed and accuracy. The application should display a paragraph and a 30-second timer. The accuracy and speed should be calculated based on the words complemented in the specified time.
+
+Objectives
+
+Initially the input field with id "start-btn" is set to displayed and the paragraph field with id "sentence" is empty.
+
+Task 1:
+
+On click of button with id "start-btn" following operation should be performed:
+
+The input field with id "input should be enabled.
+
+Their paragraph should be displayed on the screen.
+
+The start button should be set to disabled.
+
+The timer for 30 sec should start.
+
+In the p tag with id "timer" the remaining time should be displayed which automatically updates every second.
+Task 2:
+
+As the timer ends, the following operation should be performed:
+
+The div with the id "result" is initially set as display none. As the timer ends, the display should be set to block display with all the information like speed and accuracy and retry test button.
+
+The input and start buttons should be disabled.
+Task 3:
+
+The retake Test in the "result" div should be able to do the following operation:
+
+The start button should be enabled.
+
+The div with id "result" display should be set to none.
+
+The input should be set to an empty string.
+
+Note:
+The application should calculate the user's typing speed by dividing the number of correctly typed words in the time taken and multiplying by 60.
+
+The application should calculate the user's accuracy percentage by dividing the number of correctly typed characters by the total number of characters and multiplying by 100.
+
+The user should be able to retake the typing test multiple times.
+
+ -->
+ <!DOCTYPE html>
+<html>
+<head>
+  <title>Typing Speed Test</title>
+  <style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: aliceblue;
+  }
+  .container{
+
+      display: flex;
+      flex-flow: column;
+      text-align: center;
+      position: relative;
+      left: 25%;
+      top: 30px;
+      width: 50%;
+      background-color: aqua;
+      border-radius: 15px;
+      box-shadow: 10px 6px 8px 2px rgba(0, 0, 0, 0.2);
+  }
+  input{
+      height: 20px;
+  }
+  button{
+      text-decoration: none;
+      border-style: none;
+      border: 1px solid rgb(1, 208, 208);
+      background-color: aqua;
+      box-shadow: 10px 6px 8px 2px rgba(0, 0, 0, 0.2);
+      font-size: 16px;
+  }
+  #typing-area {
+    margin-bottom: 20px;
+  }
+  
+  #result {
+    display: none;
+    margin-top: 20px;
+  }
+  </style>
+</head>
+<body>
+  <div class = "container">
+  <h1>Typing Speed Test</h1>
+  
+  <div id="typing-area">
+    <p id="sentence"></p>
+    <input type="text" id="input" disabled>
+    <button id="start-btn">Start Test</button>
+    <p id="timer"></p>
+  </div>
+  
+  <div id="result">
+    <h2>Test Result</h2>
+    <p>Typing Speed: <span id="speed"></span> WPM</p>
+    <p>Accuracy: <span id="accuracy"></span>%</p>
+    <button id="retry-btn">Retry Test</button>
+  </div>
+</div>
+<script>
+/*const sentences = 
+  `The quick brown fox jumps over the lazy dog.
+  Sphinx of black quartz, judge my vow.
+  Pack my box with five dozen liquor jugs.
+  How vexingly quick daft zebras jump!`
+;
+
+let startBtn = document.getElementById('start-btn');
+let inputField = document.getElementById('input');
+let sentencePara = document.getElementById('sentence');
+let timerPara = document.getElementById('timer');
+let resultDiv = document.getElementById('result');
+let speedSpan = document.getElementById('speed');
+let accuracySpan = document.getElementById('accuracy');
+let retryBtn = document.getElementById('retry-btn');
+let timer;
+
+function startTimer() {
+  let timeLeft = 30;
+  timer = setInterval(function() {
+    timerPara.textContent = `00:${timeLeft}`;
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      endTest();
+    }
+  }, 1000);
+}
+
+function endTest() {
+  inputField.disabled = true;
+  startBtn.disabled = true;
+
+  let typedText = inputField.value;
+  let wordsArray = sentences.split(' ');
+  let typedWords = typedText.split(' ');
+  let correctWords = 0;
+  let correctCharacters = 0;
+
+  for (let i = 0; i < typedWords.length; i++) {
+    if (typedWords[i] === wordsArray[i]) {
+      correctWords++;
+      correctCharacters += typedWords[i].length;
+    }
+  }
+
+  let speed = (correctWords / 30) * 60; // Words per minute
+  let accuracy = (correctCharacters / typedText.length) * 100;
+
+  displayResult(speed, accuracy);
+}
+
+function displayResult(speed, accuracy) {
+  resultDiv.style.display = 'block';
+  speedSpan.textContent = speed.toFixed(2);
+  accuracySpan.textContent = accuracy.toFixed(2);
+
+  retryBtn.addEventListener('click', function() {
+    startBtn.disabled = false;
+    resultDiv.style.display = 'none';
+    inputField.value = '';
+    timerPara.textContent = '';
+    sentencePara.textContent = '';
+  });
+}
+
+startBtn.addEventListener('click', function() {
+  inputField.disabled = false;
+  sentencePara.textContent = sentences;
+  startBtn.disabled = true;
+  startTimer();
+});
+
+// Additional event listener for input to disable the start button initially
+inputField.addEventListener('input', function() {
+  startBtn.disabled = true;
+});*/
+
+
+
+const sentences = 
+  `The quick brown fox jumps over the lazy dog. ` +
+  `Sphinx of black quartz, judge my vow. ` +
+  `Pack my box with five dozen liquor jugs. ` +
+  `How vexingly quick daft zebras jump!`;
+
+// Variables to keep track of test state and timing.
+let currentSentenceIndex = 0;
+let startTime, endTime;
+let timerInterval;
+
+// DOM elements retrieval for interaction.
+const sentenceElement = document.getElementById("sentence");
+const inputElement = document.getElementById("input");
+const startButton = document.getElementById("start-btn");
+const timerElement = document.getElementById("timer");
+const speedElement = document.getElementById("speed");
+const accuracyElement = document.getElementById("accuracy");
+const resultElement = document.getElementById("result");
+const retryButton = document.getElementById("retry-btn");
+
+// Function to start the typing test.
+function startTest() {
+  // Display the sentences to be typed.
+  sentenceElement.innerHTML = sentences;
+  
+  // Reset the input field and enable it for user interaction.
+  inputElement.value = "";
+  inputElement.disabled = false;
+  inputElement.focus();
+  
+  // Disable the start button to prevent multiple test initiations.
+  startButton.disabled = true;
+
+  // Record the start time and initiate a timer interval.
+  startTime = new Date();
+  timerInterval = setInterval(updateTimer, 1000);
+  
+  // Set a timeout to automatically end the test after 30 seconds.
+  setTimeout(endTest, 30000);
+}
+
+// Function to update the timer display.
+function updateTimer() {
+  const currentTime = new Date();
+  const elapsedTime = Math.floor((currentTime - startTime) / 1000);
+  const remainingTime = 30 - elapsedTime;
+  const minutes = Math.floor(remainingTime / 60);
+  const seconds = remainingTime % 60;
+
+  // Display the remaining time in the MM:SS format.
+  timerElement.textContent = `${minutes.toString().padStart(2, "0")}:${seconds.toString().padStart(2, "0")}`;
+}
+
+// Function to end the typing test and display results.
+function endTest() {
+  // Stop the timer interval.
+  clearInterval(timerInterval);
+
+  // Record the end time and calculate elapsed time.
+  endTime = new Date();
+  const elapsedTime = Math.floor((endTime - startTime) / 1000);
+
+  // Extract and trim the typed and correct sentences.
+  const typedSentence = inputElement.value.trim();
+  const correctSentence = sentenceElement.textContent.trim();
+  
+  // Initialize variables for speed and correct word count.
+  let speed = 0;
+  let typedWords = [];
+  
+  // Split the typed sentence into an array of words.
+  if (typedSentence !== "") {
+    typedWords = typedSentence.split(" ");
+  }
+  
+  // Split the correct sentence into an array of words.
+  const correctWords = correctSentence.split(" ");
+  
+  // Variables to track correct word count and index.
+  let correctCount = 0;
+  let ind = 0;
+  
+  // Iterate through typed words and compare with correct words.
+  typedWords.forEach((word, index) => {
+    if (word === correctWords[index]) {
+      correctCount++;
+      ind = index;
+    }
+  });
+  // Calculate typing speed and accuracy.
+  if (typedSentence !== "") {
+    speed = Math.floor((correctCount / elapsedTime) * 60);
+  }
+  const accuracy = (correctCount / correctWords.length) * 100;
+  
+  // Display the results and make the retry button focusable.
+  speedElement.textContent = speed;
+  accuracyElement.textContent = accuracy.toFixed(2);
+  resultElement.style.display = "block";
+  retryButton.focus();
+}
+
+// Event listener for the start button to initiate the typing test.
+startButton.addEventListener("click", startTest);
+
+// Event listener for the retry button to reset the test.
+retryButton.addEventListener("click", () => {
+  resultElement.style.display = "none";
+  startButton.disabled = false;
+  inputElement.value = "";
+});
+
+</script>
+</body>
+</html>
