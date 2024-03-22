@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://kit.fontawesome.com/b3348ae33f.js"
+      crossorigin="anonymous"
+    ></script>
+    
+    <title>Music Player</title>
+    <style>
+      body{
+        background-color:gainsboro;
+      }  
+      .toggle-bar{
+        display: flex;
+        justify-content: flex-end;
+      }
+      .toggle{
+        width: 7%;
+        height: 20%;
+        padding: 0.5rem;
+        background-color:grey;
+        border-radius: 10rem;
+        position: relative;
+        /* overflow: hidden; */
+      }
+      .circle{
+        border-radius: 50%;
+        height: 1.2rem;
+        width: 1.2rem;
+        background-color: azure;
+        cursor: pointer;
+      }
+      span{
+        position: absolute;
+        right: 0.9rem;
+        top:0.4rem;
+        /* vertical-align: middle;
+        overflow: hidden; */
+      }
+      .heading{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      section{
+        display: flex;
+        flex-direction: row;
+      }
+      .all_songs{
+        /* display: inline-block; */
+        /* flex-direction: row; */
+        overflow: hidden;
+        height: 100vh;
+        width: 20vw;
+        background-color: rgb(41, 153, 218);
+        border-radius: 0.9rem;
+        padding: 2rem;
+        margin-right: 2rem;
+      }
+      select{
+        background-color: rgb(44, 26, 145);
+        border: transparent;
+        padding: 0.5rem;
+        border-radius: 0.3rem;
+      }
+      .song_list h1{
+        margin-bottom:2rem;
+      }
+      .songs .btn{
+        background-color: rgb(33, 50, 202);
+        border: transparent;
+        padding: 0.8rem;
+        border-radius: 0.3rem;
+        margin-bottom: 1rem;
+      }
+      .filter{
+        display: inline-block;
+      }
+      .player{
+        /* display: inline-block; */
+        /* flex-direction: row; */
+        overflow: hidden;
+        
+        height: 100vh;
+        width: 27vw;
+        border-top: 2px solid #552e9e;
+        border-left: 2px solid #552e9e;
+        background-color: rgb(41, 153, 218);
+        border-radius: 0.9rem;
+        padding: 2rem;
+        margin-right: 2rem;
+      }
+      .playlist{
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+        height: 100vh;
+        width: 17vw;
+        border-top: 2px solid #552e9e;
+        border-left: 2px solid #552e9e;
+        margin-top: 1rem;
+        background-color: rgb(41, 153, 218);
+        border-radius: 0.9rem;
+        padding: 1rem;
+        margin-right: 2rem;
+      }
+      .card-container{
+        background-color:rgb(33, 50, 202); 
+        height: auto;
+        padding:1rem;
+        border-radius: 0.6rem;
+      }
+      .img{
+        width:100%;
+        height: 90%;
+      }
+      .img img{
+        width: 100%;
+        height: 100%;
+      }
+      .song-details{
+        line-height: 0.4rem;
+      }
+
+      .music-bar{
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+
+      }
+      input[type="text"]{
+        border: 1.5px solid black;
+        background-color: gainsboro;
+        padding: 0.5rem;
+        
+      }
+      .sub {
+        border: transparent;
+        background-color: #3e0a9e;
+        padding:0.5rem 0.8rem;
+      }
+      .one{
+        display: flex;
+        justify-content:center;
+        margin-top: 1rem;
+        
+        
+      }
+      .one button{
+        margin-right: 1.5rem;
+        padding: 0.4rem 0.5rem;
+        background-color: #7451b4;
+        color: white;
+        border: transparent;
+        cursor: pointer;
+      }
+      
+      
+    </style>
+</head>
+<body>
+    <header>
+        <!---toggle-button-->
+<div class="toggle-bar">
+    <div class="toggle">
+        <div class="circle">
+
+        </div>
+        <span class="theme">Dark</span>
+    </div>
+</div>
+<!--heading-->
+<div class="heading">
+    <h2>Music Player</h2>
+
+</div>
+    </header>
+    <!--section-->
+    <section>
+        <!--all song section-->
+        <div class="all_songs">
+            <!---filter by genre-->
+            <div class=" Filter">
+            <label for="cars">Filter by Genre:</label>
+            <select name="Genre" id="select_song">
+              <option value="All" class="all">All</option>
+              <option value="Hip Hop" class="hip-hop">Hip Hop</option>
+              <option value="Rock" class="rock">Rock</option>
+              <option value="Pop" class="pop">Pop</option>
+          </select>
+            </div>
+            <!--all songs-->
+            <div class="song_list">
+                <h1>All Songs</h1>
+                <div class="songs">
+                    <!-- <button type="button" class="btn playpause"> Shape Of You-Ed Sheeran</button>
+                    <button type="button" class="btn playpause"> Shape Of You-Ed Sheeran</button>
+                    <button type="button" class="btn playpause"> Shape Of You-Ed Sheeran</button> -->
+                </div>
+
+
+</div>
+
+        </div>
+        <!--display song section-->
+        <div class="player">
+            <div class="card-container">
+                <div class="img">
+                    <img src="../Images/carousel1.jpg">
+
+                </div>
+                <div class="song-details">
+                    <h2>Shape Of You</h2>
+                    <p>Ed Shreeran</p>
+                </div>
+            </div>
+            <!---audio display part-->
+            <div class="music-bar">
+                <audio controls>
+                    <source src="../Audio/07 Mere Sapno ki Rani - SANAM.mp3" type="audio/MP3">
+
+                </audio>
+            </div>
+            <div class="prevnext">
+              <div class="one">
+<button type="button" class="prev clr"><i class="fa-solid fa-arrow-left"></i></button>
+
+<button type="button" class="next clr"><i class="fa-solid fa-arrow-right"></i></button>
+
+
+              </div>
+
+              <div class="two one">
+                <button type="button" class="add clr">Add to Playlist</button>
+              </div>
+            </div>
+            </div>
+            <!--all playlist-->
+            <div class="allplay">
+                <div class="search_folder">
+                    <input type="text" placeholder="Enter playlist name">
+                    <button type="submit" class="sub">Create Playlist</button>
+
+                </div>
+        <div class="songs playlist">
+            <div class="currentplaylist">
+                <h1>Current Playlist</h1>
+            </div>
+            <div class="currentplaylist">
+                <h1>All Playlists</h1>
+            </div>
+
+        </div>    
+</div>
+    </section>
+    
+    <script>
+      let songcollection =[
+        {id:1,name:'Shape Of You' ,artist:"Ed Sheeran",genre:'Pop',image:'../Images/carousel1.jpg',
+        src:'../Audio/07 Mere Sapno ki Rani - SANAM.mp3'},{id:2,name:'All Of Me' ,artist:"Adele",genre:'Pop',image:'../Images/queue-02.jpg',
+        src:'../Audio/Bol Do Na Zara - Azhar(mp3fix.in).mp3'},{id:3,name:'Somelike Like You' ,artist:"Adele",genre:'Pop',image:'../Images/queue-01.jpg',
+        src:'../Audio/Titli.mp3'},{id:4,name:'Sugar' ,artist:"Maroon",genre:'Hip Hop',image:'../Images/queue-04.png',
+        src:'../Audio/Saanware - Akhil Sachdeva(mp3fix.in).mp3'}, {id:5,name:'Locked Away' ,artist:"R. City",genre:'Hip Hop',image:'../Images/sixnine.jpg',
+        src:'../Audio/Jeena Jeena - (Slowed  Reverb)(WellMp3.In).mp3'},{id:6,name:'Wonderwall' ,artist:"Oasis",genre:'Rock',image:'../Images/carousel1.jpg',
+        src:'../Audio/07 Mere Sapno ki Rani - SANAM.mp3'},
+      ]
+      // Function to display songs based on the selected genre
+function displaySongsByGenre(selectedGenre) {
+    const songsContainer = document.querySelector('.songs');
+    songsContainer.innerHTML = ''; // Clear existing content
+
+    if (selectedGenre === 'All') {
+        // Display all songs
+        songcollection.forEach(song => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.value=`${song.name}`;
+            button.classList.add('btn', 'playpause');
+            button.textContent = `${song.name} - ${song.artist}`;
+            songsContainer.appendChild(button);
+        });
+    } else {
+        // Display songs based on the selected genre
+        const filteredSongs = songcollection.filter(song => song.genre=== selectedGenre);
+        filteredSongs.forEach(song => {
+            const button = document.createElement('button');
+            button.type = 'button';
+            button.classList.add('btn', 'playpause');
+            button.textContent = `${song.name} - ${song.artist}`;
+            songsContainer.appendChild(button);
+        });
+    }
+}
+
+// Event listener for genre selection change
+// const selectSong = document.querySelectorAll('option');
+// selectSong.forEach((opt)=>{
+//   opt.addEventListener('click', () =>{
+//     const selectedGenre = opt.textContent;
+//     displaySongsByGenre(selectedGenre);
+// });})
+const selectSong = document.getElementById('select_song');
+selectSong.addEventListener('change', function () {
+    const selectedGenre = selectSong.value;
+    displaySongsByGenre(selectedGenre);
+});
+
+// Initial display on page load
+displaySongsByGenre('All');
+let currentSongIndex = 0; // Keep track ouf the current song index
+
+function changeSong(buttonName) {
+  const currentIndex = songcollection.findIndex(song => `${song.name} - ${song.artist}` === buttonName);
+
+  if (currentIndex !== -1) {
+    currentSongIndex = currentIndex;
+    displayCurrentSong();
+  }
+}
+
+function displayCurrentSong() {
+  const playerContainer = document.querySelector('.player');
+  const imageContainer = playerContainer.querySelector('.img img');
+  const songDetailsContainer = playerContainer.querySelector('.song-details');
+  const audioElement = playerContainer.querySelector('.music-bar audio');
+
+  const currentSong = songcollection[currentSongIndex];
+
+  imageContainer.src = currentSong.image;
+  audioElement.src = currentSong.src;
+
+  songDetailsContainer.innerHTML = `<h2>${currentSong.name}</h2><p>${currentSong.artist}</p>`;
+}
+
+// Event listener for previous and next buttons
+const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.next');
+
+prevButton.addEventListener('click', function () {
+  currentSongIndex = (currentSongIndex - 1 + songcollection.length) % songcollection.length;
+  displayCurrentSong();
+});
+
+nextButton.addEventListener('click', function () {
+  currentSongIndex = (currentSongIndex + 1) % songcollection.length;
+  displayCurrentSong();
+});
+
+    const songsContainer = document.querySelector('.songs');
+
+songsContainer.addEventListener('click', function (event) {
+    const target = event.target;
+    if (target.classList.contains('btn')) {
+        const buttonName = target.textContent;
+        changeSong(buttonName);
+    }
+});
+   // Function to create a new playlist button
+function createPlaylistButton(playlistName) {
+    const playlistContainer = document.querySelector('.playlist');
+    
+    // Create a new button element
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.classList.add('btn', 'playpause');
+    button.textContent = playlistName;
+
+    // Append the new button to the playlist container
+    playlistContainer.appendChild(button);
+}
+
+// Event listener for the "Create Playlist" button
+const createPlaylistButtonElement = document.querySelector('.sub');
+createPlaylistButtonElement.addEventListener('click', function () {
+    const playlistNameInput = document.querySelector('input[type="text"]');
+    const playlistName = playlistNameInput.value;
+
+    if (playlistName.trim() !== '') {
+        // Create a new playlist button only if the input is not empty
+        createPlaylistButton(playlistName);
+
+        // Clear the input box after creating the playlist
+        playlistNameInput.value = '';
+    }
+});
+ // Event listener for the "Add to Playlist" button
+const addToPlaylistButton = document.querySelector('.add');
+addToPlaylistButton.addEventListener('click', function () {
+    const currentPlaylistContainer = document.querySelector('.currentplaylist');
+    const currentSong = songcollection[currentSongIndex];
+
+    // Create a new button element
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.classList.add('btn', 'playpause');
+    button.textContent = `${currentSong.name} - ${currentSong.artist}`;
+
+    // Append the new button to the current playlist container
+    currentPlaylistContainer.appendChild(button);
+});
+
+
+
+      
+        let toggle = document.querySelector('.toggle');
+        let circle_toggle = document.querySelector('.circle');
+        let body = document.querySelector('body');
+        let theme = document.querySelector('.theme');
+        let isToggled = false;
+    
+        circle_toggle.addEventListener('click', function() {
+            if (isToggled) {
+                // Toggle back to the original position
+                circle_toggle.style.position = 'initial';
+                circle_toggle.style.right = 'initial';
+                toggle.style.padding = '0.5rem';
+                toggle.style.height = '1rem';
+                body.style.backgroundColor='gainsboro';
+                body.style.color = 'initial';
+                theme.textContent='Dark';
+            } else {
+                // Toggle to the new position
+                circle_toggle.style.position = 'absolute';
+                circle_toggle.style.right = '4rem';
+                toggle.style.padding = '0.5rem';
+                toggle.style.height = '1rem';
+                body.style.backgroundColor='black';
+                body.style.color = 'white';
+                theme.textContent='Light';
+            }
+    
+            // Toggle the state
+            isToggled = !isToggled;
+        });
+    </script>
+        
+    
+</body>
+</html>
