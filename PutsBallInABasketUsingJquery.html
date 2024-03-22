@@ -1,0 +1,72 @@
+<!-- Problem statement
+You have been given a task to move balls to a basket. There are many balls lying on the floor scattered and needs to be put in the basket.
+
+The process is fully automatic and you just need to press a button to initiate the process. After pressing the button, the ball automatically gets stacked in the basket.
+
+The addition of a ball starts from the left side of the basket and gets stacked up as a row gets fully filled.
+
+The balls are picked at random by the machine and they have the following colors - 'red', 'blue', 'yellow', 'lightgrey', 'darkorchid', 'black', 'orange', 'deeppink', 'green', 'purple', 'saddlebrown', 'lightseagreen', 'deepskyblue', 'firebrick' and 'crimson'.
+
+ -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Balls</title>
+    <style>
+
+button {
+    width: 200px;
+    height: 50px;
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    font-family: monospace;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+button:hover {
+    box-shadow: 0px 0px 30px 2px grey;
+}
+
+#box {
+    border: 5px double lightgrey;
+    border-top: none;
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    min-height: 100px;
+    background-color: azure;
+}
+
+.ball {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+}
+    </style>
+</head>
+<body>
+
+        <button type="submit">Add Ball To Basket</button>
+        
+        <div id="box"></div>
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.7.1.js"
+  integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+  crossorigin="anonymous"></script>
+    <script>
+        
+        var colors = ['red', 'blue', 'yellow', 'lightgrey', 'darkorchid', 'black', 'orange', 'deeppink', 'green', 'purple', 'saddlebrown', 'lightseagreen', 'deepskyblue', 'firebrick', 'crimson'];
+
+var box = $("#box");
+
+$("button").click(function(e) {
+    box.append('<div class="ball" style="background-color: ' + colors[Math.floor(Math.random()*15)] + '"></div>');
+});
+
+    </script>
+</body>
+</html>
