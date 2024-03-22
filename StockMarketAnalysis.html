@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background-color: rgb(0, 0, 44);
+        }
+        h1{
+            color:white;
+            text-align: center;
+        }
+        section{
+            display: flex;
+            flex-direction: row;
+        }
+        .display{
+            background-color: rgb(3, 3, 103);
+            height: 70vh;
+            width:60vw;
+            margin: 2rem;
+            border-radius:1rem;
+        }
+        .buttons{
+            margin: 2rem;
+            display:flex;
+            flex-direction: column; 
+        
+
+
+        }
+        .row{
+            margin-bottom: 1.5rem;
+            
+
+        }
+        .row button{
+            background-color: navy;
+            color: white;
+            padding: 0.4rem;
+            cursor: pointer;
+        }
+         .price{
+            color: white;
+            margin-left:0.5rem;
+            font-size: 1.2rem;
+        }
+        .percentage{
+            color: rgb(23, 234, 23);
+            margin-left:0.5rem;
+            font-size: 1.3rem;
+
+        }
+        .analysis{
+            height: 80%;
+            width: 50vw;
+        }
+        .analysis img{
+            width: 100%;
+            height: 100%;
+        }
+        .years{
+            display: flex;
+            justify-content: space-evenly;
+    
+        }
+        .years button{
+            background-color: blue;
+            color: white;
+            padding: 0.5rem;
+            border-radius: 2rem;
+            border: transparent;
+            cursor: pointer;
+        }
+        .description {
+            width: 50%;
+            margin: 2rem;
+            color: white;
+        }
+
+            
+    </style>
+</head>
+<body>
+    <h1>Stock Market Analysis</h1>
+    <section>
+        <div class="display">
+            <div class="analysis">
+                <img src="../Images/1515053823.jpg" alt="">
+
+            </div>
+            <div class="years">
+                <button type="button">
+                    1 Month
+                </button>
+                <button type="button">
+                    3 Month
+                </button>
+                <button type="button">
+                    1 Year
+                </button>
+                <button type="button">
+                    5 Year
+                </button>
+            </div>
+
+        </div>
+        <div class="buttons">
+            <!-- <div class="row">
+            <button type="button">AAPL</button>
+            <span class="price">$3.953</span>
+            <span class="percentage">0.24%</span>
+            </div>
+            <div class="row">
+                <button type="button">AAPL</button>
+                <span class="price">$3.953</span>
+                <span class="percentage">0.24%</span>
+                </div> -->
+        </div>
+        </section>
+        <div class="description">
+            <div class="desc">
+                <span>AAPL</span>
+                <span class="price">$3.953</span>
+                <span class="percentage">0.24%</span>
+            </div>
+            <div class="para"><p>
+                Apple Inc. designs, manufactures, and markets smartphones, personal computers, tablets, wearables, and accessories worldwide. The company offers iPhone, a line of smartphones; Mac, a line of personal computers; iPad, a line of multi-purpose tablets; and wearables, home, and accessories comprising AirPods, Apple TV, Apple Watch, Beats products, and HomePod. It also provides AppleCare support and cloud services; and operates various platforms, including the App Store that allow customers to discover and download applications and digital content, such as books, music, video, games, and podcasts. In addition, the company offers various services, such as Apple Arcade, a game subscription service; Apple Fitness+, a personalized fitness service; Apple Music, which offers users a curated listening experience with on-demand radio stations; Apple News+, a subscription news and magazine service; Apple TV+, which offers exclusive original content; Apple Card, a co-branded credit card; and Apple Pay, a cashless payment service, as well as licenses its intellectual property. The company serves consumers, and small and mid-sized businesses; and the education, enterprise, and government markets. It distributes third-party applications for its products through the App Store. The company also sells its products through its retail and online stores, and direct sales force; and third-party cellular network carriers, wholesalers, retailers, and resellers. Apple Inc. was incorporated in 1977 and is headquartered in Cupertino, California.
+            </p></div>
+        </div>
+        <script>
+            const Stocks = ['AAPL', 'MSFT', 'GOOGL', 'AMZN', 'PYPL', 'TSLA', 'JPM', 'NVDA', 'NFLX', 'DIS'];
+        
+            async function fetchStockProfile(symbol) {
+                const response = await fetch(`https://stocks3.onrender.com/api/stocks/getstocksprofiledata?symbol=${symbol}`);
+                const data = await response.json();
+                return data;
+            }
+        
+            async function fetchStockStats(symbol) {
+                const response = await fetch(`https://stocks3.onrender.com/api/stocks/getstockstatsdata?symbol=${symbol}`);
+                const data = await response.json();
+                return data;
+            }
+        
+            async function fetchDataForStocks() {
+                const butn = document.querySelector('.buttons');
+        
+                for (const stk of Stocks) {
+                    const stats = await fetchStockStats(stk);
+                    const stockData = stats.stocksStatsData[0][stk];
+        
+                    // Create a new row for each stock
+                    const row = document.createElement('div');
+                    row.classList.add('row');
+                    row.innerHTML = `
+                        <button type='button' class='stks'>${stk}</button>
+                        <span class='price'>$${stockData.bookValue}</span>
+                        <span class='percentage'>${(stockData.profit).toFixed(2)}%</span>
+                    `;
+                    butn.appendChild(row);
+        
+                    // Assign event listener to the newly created button
+                    // row.querySelector('.stks').addEventListener('click', async () => {
+                        const profile = await fetchStockProfile(stk);
+                        // console.log(profile);
+                        row.querySelector('.stks').addEventListener('click', async () => {
+                        const profileData = profile.stocksProfileData[0][stk];
+                        const stockData = stats.stocksStatsData[0][stk];
+                        // console.log(stockData);
+                        // console.log(stk);
+                        displayProperties(stockData,stk);
+                        displayDescription(profileData);})
+                        // displayProperties(profile[stk].summary);
+                    // });
+                }
+            }
+        
+            fetchDataForStocks();
+        
+            function displayDescription(summary) {
+                const modal = document.querySelector('.para p');
+                modal.innerHTML='';
+                modal.textContent = summary.summary;
+            }
+            function displayProperties(data,stk){
+                const descip = document.querySelector('.desc');
+                descip.innerHTML = '';
+                
+                    descip.innerHTML = `
+                        <span>${stk}</span>
+                        <span class='percentage'>${(data.profit)}%</span>
+                        <span class='price'>$${data.bookValue}</span>
+                        
+                    `;
+
+            }
+        </script>
+                     
+    
+</body>
+</html>
