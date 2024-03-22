@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Asynchronous JS</title>
+
+  </head>
+  <body>
+    <h1> Time Out</h1>
+    <button class="button">
+        Click Here
+        </button> 
+
+    <h3 id="text"></h3>
+	<script>
+        const buttonElement = document.querySelector('.button');
+const textElement = document.querySelector('#text');
+
+
+buttonElement.addEventListener('click', ()=>{
+    textElement.textContent = "Button is pressed";
+
+    setTimeout(()=>{
+        textElement.textContent = "";
+    },2000);
+});
+    </script>
+  </body>
+</html>
